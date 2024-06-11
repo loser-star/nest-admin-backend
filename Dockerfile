@@ -12,7 +12,7 @@ RUN npm install -g @nestjs/cli
 
 COPY . .
 
-RUN npm run build
+RUN NODE_ENV=production npm run build
 
 # production stage
 FROM node:18.0-alpine3.14 as production-stage
