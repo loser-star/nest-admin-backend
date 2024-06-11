@@ -1,8 +1,5 @@
 FROM node:18.0-alpine3.14 as build-stage
 
-# 设置环境变量
-ENV NODE_ENV=production
-
 WORKDIR /app
 
 COPY package.json .
@@ -10,6 +7,7 @@ COPY package.json .
 RUN npm config set registry https://registry.npmmirror.com/
 
 RUN npm install
+RUN npm install -g @nestjs/cli
 
 COPY . .
 
