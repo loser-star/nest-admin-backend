@@ -1,4 +1,5 @@
 FROM node:18.0-alpine3.14 as build-stage
+ENV NODE_ENV=production
 
 WORKDIR /app
 
