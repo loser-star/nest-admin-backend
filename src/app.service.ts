@@ -3,8 +3,12 @@ import { ConfigService } from '@nestjs/config';
 @Injectable()
 export class AppService {
   constructor(private configService: ConfigService) {}
-  getHello(): string {
+  getHello() {
     console.log(this.configService.get<string>('aaa.bbb.ccc'));
-    return this.configService.get<string>('aaa.bbb.ccc');
+    return {
+      message: 'Hello World!',
+      env: this.configService.get<string>('aaa.bbb.ccc'),
+      data: process.env.NODE_ENV,
+    };
   }
 }
